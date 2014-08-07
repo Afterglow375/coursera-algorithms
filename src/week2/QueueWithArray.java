@@ -24,7 +24,7 @@ public class QueueWithArray<Item> implements Iterable<Item> {
 	}
 	
 	private class QueueIterator implements Iterator<Item> {
-		private int i = tail;
+		private int i = ((tail-1) < 0) ? capacity-1 : tail-1;
 		
 		public boolean hasNext() {
 			return data[i] != null;
@@ -106,6 +106,12 @@ public class QueueWithArray<Item> implements Iterable<Item> {
 		q.enqueue(5);
 		q.enqueue(-5);
 		q.dequeue();
+		q.printInfo();
+		System.out.println("==============");
+		for (int item : q) {
+			System.out.println(item);
+		}
+		System.out.println("==============");
 		q.dequeue();
 		q.dequeue();
 		q.printInfo();
