@@ -24,10 +24,11 @@ public class QueueWithArray<Item> implements Iterable<Item> {
 	}
 	
 	private class QueueIterator implements Iterator<Item> {
+		private int loopCounter = 0;
 		private int i = ((tail-1) < 0) ? capacity-1 : tail-1;
 		
 		public boolean hasNext() {
-			return data[i] != null;
+			return data[i] != null && loopCounter != capacity;
 		}
 		
 		public Item next() {
@@ -105,13 +106,13 @@ public class QueueWithArray<Item> implements Iterable<Item> {
 		q.enqueue(15);
 		q.enqueue(5);
 		q.enqueue(-5);
-		q.dequeue();
 		q.printInfo();
 		System.out.println("==============");
 		for (int item : q) {
 			System.out.println(item);
 		}
 		System.out.println("==============");
+		q.dequeue();
 		q.dequeue();
 		q.dequeue();
 		q.printInfo();
