@@ -1,27 +1,47 @@
 package week2;
 
+import java.util.Iterator;
+
 /*	
 	Written by Alex Tatusko
 	Coursera Algorithms Part 1 Week 2
 	Queue implementation using an array
 */
 
-public class QueueWithArray {
-	private String[] data;
+public class QueueWithArray<Item> implements Iterable<Item> {
+	private Item[] data;
 	private int head, tail, capacity;
 	
 	public QueueWithArray() {
-		this.data = new String[1]; // Initial capacity is 1
+		this.data = (Item[]) new Object[1]; // Initial capacity is 1
 		this.head = 0;
 		this.tail = 0;
 		this.capacity = 1;
+	}
+	
+	public Iterator<Item> iterator() {
+		return new QueueIterator();
+	}
+	
+	private class QueueIterator implements Iterator<Item> {
+		private int i = tail;
+		
+		public boolean hasNext() {
+			return data[i] != null;
+		}
+		
+		public Item next() {
+			Item item = data[i];
+			i = ((i-1) < 0) ? capacity-1 : i-1;
+			return item;
+		}
 	}
 	
 	public boolean isEmpty() {
 		return data[head] == null;
 	}
 	
-	public void enqueue(String item) {
+	public void enqueue(Item item) {
 		// If max capacity, double the length of the array
 		if (data[tail] != null) {
 			resize(capacity*2);
@@ -31,8 +51,8 @@ public class QueueWithArray {
 		tail = (tail+1) % capacity;
 	}
 	
-	public String dequeue() {
-		String item = data[head];
+	public Item dequeue() {
+		Item item = data[head];
 		data[head] = null;
 		head = (head+1) % capacity;
 		
@@ -49,7 +69,7 @@ public class QueueWithArray {
 	}
 	
 	private void resize(int capacity) {
-		String[] newData = new String[capacity];
+		Item[] newData = (Item[]) new Object[capacity];
 		int i = head;
 		do {
 			newData[i-head] = data[i];
@@ -80,11 +100,11 @@ public class QueueWithArray {
 	}
 	
 	public static void main(String[] args) {
-		QueueWithArray q = new QueueWithArray();
-		q.enqueue("Cat");
-		q.enqueue("Dog");
-		q.enqueue("Lamb");
-		q.enqueue("Goat");
+		QueueWithArray<Integer> q = new QueueWithArray<Integer>();
+		q.enqueue(10);
+		q.enqueue(15);
+		q.enqueue(5);
+		q.enqueue(-5);
 		q.dequeue();
 		q.dequeue();
 		q.dequeue();
