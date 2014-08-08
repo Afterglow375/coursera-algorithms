@@ -9,14 +9,17 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 public class Deque<Item> implements Iterable<Item> {
-	private int size;	
+	private int size;
+	private Node head, start;
 	
 	public Deque() {
 		this.size = 0;
 	}
 	
 	private class Node {
-		
+		Item item;
+		Node next;
+		Node prev;
 	}
 	
 	public boolean isEmpty() {
