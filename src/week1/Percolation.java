@@ -1,17 +1,17 @@
+package week1;
 /*	
 	Written by Alex Tatusko
 	Coursera Algorithms Part 1 Week 1
+	Programming Assignment 1
 */
-
-package week1;
 
 import edu.princeton.cs.algs4.WeightedQuickUnionUF;
 
 public class Percolation {
-	public int N;
-	public boolean[][] grid;
-	public WeightedQuickUnionUF uf;
-	public int endSite;
+	private int N;
+	private boolean[][] grid;
+	private WeightedQuickUnionUF uf;
+	private int endSite;
 	
 	public Percolation(int N) {
 		this.N = N;

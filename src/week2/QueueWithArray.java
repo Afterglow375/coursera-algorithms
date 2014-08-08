@@ -1,12 +1,11 @@
 package week2;
-
-import java.util.Iterator;
-
 /*	
 	Written by Alex Tatusko
 	Coursera Algorithms Part 1 Week 2
 	Queue implementation using an array
 */
+
+import java.util.Iterator;
 
 public class QueueWithArray<Item> implements Iterable<Item> {
 	private Item[] data;

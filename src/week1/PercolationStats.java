@@ -1,16 +1,16 @@
+package week1;
 /*	
 	Written by Alex Tatusko
 	Coursera Algorithms Part 1 Week 1
+	Programming Assignment 1
 */
-
-package week1;
 
 import edu.princeton.cs.introcs.StdRandom;
 import edu.princeton.cs.introcs.StdStats;
 
 public class PercolationStats {
-	public double[] fractions; // Fractions of open sites
-	public int T;
+	private double[] fractions; // Fractions of open sites
+	private int T;
 	private double mean;
 	private double stddev;
 
