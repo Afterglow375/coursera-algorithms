@@ -9,8 +9,8 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 public class Deque<Item> implements Iterable<Item> {
-	public int size;
-	public Node first, last;
+	private int size;
+	private Node first, last;
 	
 	public Deque() {
 		this.size = 0;
@@ -105,9 +105,16 @@ public class Deque<Item> implements Iterable<Item> {
 		public boolean hasNext() {
 			return nodePointer != null;
 		}
+		
+		@Override
+		public void remove() {
+			throw new UnsupportedOperationException("Remove not supported");
+		}
 
 		@Override
 		public Item next() {
+			if (!hasNext()) 
+				throw new NoSuchElementException("next() called without any more items");
 			Item item = nodePointer.item;
 			nodePointer = nodePointer.next;
 			return item;
