@@ -1,5 +1,11 @@
 package week2;
 
+/*	
+	Written by Alex Tatusko
+	Coursera Algorithms Part 1 Week 2
+	Programming Assignment #2
+*/
+
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
@@ -125,6 +131,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 		}
 		System.out.println("Sample: " + rq.sample());
 		System.out.println("Dequeue: " + rq.dequeue());
+		System.out.println(rq.capacity);
 		for (int i : rq) {
 			System.out.println(i);
 		}
