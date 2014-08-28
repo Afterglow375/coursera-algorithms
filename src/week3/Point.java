@@ -105,7 +105,7 @@ public class Point implements Comparable<Point> {
         Point p5 = new Point(5, 6);
         System.out.println(p1.compareTo(p2));
         Point[] arr = {p1, p2, p3, p4, p5};
-        Arrays.sort(arr, p1.SLOPE_ORDER);
+        Arrays.sort(arr, p3.SLOPE_ORDER);
         System.out.println(arr[0]);
         System.out.println(arr[1]);
         System.out.println(arr[2]);
