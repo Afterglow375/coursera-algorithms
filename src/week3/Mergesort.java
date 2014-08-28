@@ -3,12 +3,13 @@ package week3;
 // Recursive mergesort implementation
 public class Mergesort {
 
-	private static void merge(Comparable[] a, Comparable[] aux, int lo, int mid, int hi) {
+    private static void merge(Comparable[] a, Comparable[] aux, int lo, int mid, int hi) {
 		
 		// Copy the contents of the array to an auxillary array
 		for (int k = lo; k <= hi; k++) {
 			aux[k] = a[k];
 		}
+
 		
 		int i = lo, j = mid+1;
 		for (int k = lo; k <= hi; k++) {

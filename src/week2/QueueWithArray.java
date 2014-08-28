@@ -5,6 +5,7 @@ package week2;
 	Queue implementation using an array
 */
 
+import javax.naming.OperationNotSupportedException;
 import java.util.Iterator;
 
 public class QueueWithArray<Item> implements Iterable<Item> {
@@ -29,8 +30,13 @@ public class QueueWithArray<Item> implements Iterable<Item> {
 		public boolean hasNext() {
 			return data[i] != null && loopCounter != capacity;
 		}
-		
-		public Item next() {
+
+        @Override
+        public void remove() {
+            throw new UnsupportedOperationException();
+        }
+
+        public Item next() {
 			Item item = data[i];
 			i = ((i-1) < 0) ? capacity-1 : i-1;
 			return item;
